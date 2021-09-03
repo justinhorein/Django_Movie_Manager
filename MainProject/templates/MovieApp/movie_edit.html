@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}Edit{% endblock %}
+
+{% block header %}Edit{% endblock %}
+
+{% block content %}
+<section>
+    <div class="container table-style pt-2">
+        <form action="" method="post" autocomplete="off">
+            {% csrf_token %}
+            <h3 class="m-3">Movie</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    {{form.title|as_crispy_field}}
+                </div>
+                <div class="col-md-6">
+                    {{form.director|as_crispy_field}}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    {{form.studio|as_crispy_field}}
+                </div>
+                <div class="col-md-4">
+                    {{form.platform|as_crispy_field}}
+                </div>
+                <div class="col-md-4">
+                    {{form.year|as_crispy_field}}
+                </div>
+            </div>
+            
+                <div class="row mt-3 mb-4">
+                    <div class="ml-auto">
+                        <button name="submit" type="submit" formmethod="post" class="btn-success">Submit</button>
+                    </div>
+            
+                
+                
+                    <div class="m-auto">
+                        <a class="confirm-delete">
+                            <button name="delete" type="submit" formmethod="post" class="btn-danger">Delete</button>
+                        </a>
+                    </div>
+                
+                </form>
+                
+                
+                    
+                        <div class="mr-auto">
+                            <button class="btn-secondary" type="button" onclick=" location.href='{% url 'listMovie' %}'">
+                                Back to Collection
+                            </button>
+                        </div>
+                    
+                </div>
+            
+    </div>
+</section>
+{% endblock %}

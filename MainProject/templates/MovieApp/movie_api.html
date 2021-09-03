@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block title %}Find Movies{% endblock %}
+
+{% block header %}Find a Movie{% endblock %}
+
+{% block content %}
+ <div class="container table-style p-4 mb-4">
+     <form method="post">
+         {% csrf_token %}
+         <h3>Search</h3>
+         <div class="p-4">
+             <div class="container ml-auto mr-auto">
+                <label>Title:</label>
+                <input type="text" name="title" value="" class="ml-2 col-4">
+            </div>
+            <div class="container ml-auto mr-auto mt-2">
+                <label>Year:</label>
+                <input type="text" name="year" value="" class="ml-2 col-4">
+            </div>
+
+            <div class="container ml-auto mr-auto mt-4">
+                <label>Format:</label>
+                <select name="mov_format" id="mov_format" class="ml-2">
+                <option value="movie">movie</option>
+                <option value="series">series</option>
+                <option value="episode">episode</option>
+                </select>
+            </div>
+        </div>
+         
+         <div class="">
+             <div class="col-md-12">
+                <button name="search" type="submit" class="btn-info">Submit</button>
+             </div>
+        </div>
+     </form>
+ </div>
+
+<div class="card-deck">
+    {{error}}
+    {% for film in movies %}
+<!-- <div class="flex-container wrapper">
+     <p class="row">
+             <p class="col-md-12">
+                {{film.Title}}
+             </p>
+            <p class="col-md-12">
+                {{film.Year}}
+             </p>
+            <p class="col-md-12">
+                {{film.Format}}
+             </p>
+            <p class="col-md-12">
+              {% if film.Poster != "N/A" %} <img src="{{film.Poster}}" ></img>
+                {% endif %}
+             </p>
+     </p>
+</div> -->
+<div class="col-xl-3 col-lg-4 col-sm-6">
+    <div class="card m-2" id="card-style">
+        {% if film.Poster != "N/A" %} <img src="{{film.Poster}}" class="card-img-top"></img>
+                    {% endif %}
+        <div class="card-body">
+            <h5 class="card-title">{{film.Title}}</h5>
+            <div class="card-text">{{film.Year}}</div>
+            <div class="card-text">{{film.Format}}</div>
+        </div>
+    </div>
+</div>
+
+    {% endfor %}
+</div>
+
+{% endblock %}

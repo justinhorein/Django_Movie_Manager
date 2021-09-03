@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Details{% endblock %}
+
+{% block header %}Details{% endblock %}
+
+{% block content %}
+
+<section>
+    <div class="container table-style p-4">
+        <table class="align-left">
+            <h3>{{movie.title}}</h3>
+            
+            <tr>
+                <th class="pr-2">Director</th>
+                <td class="pl-2">{{movie.director}}</td>
+            </tr>
+            <tr>
+                <th class="pr-2">Studio</th>
+                <td class="pl-2">{{movie.studio}}</td>
+            </tr>
+            <tr>
+                <th class="pr-2">Platform</th>
+                <td class="pl-2">{{movie.platform}}</td>
+            </tr>
+            <tr>
+                <th class="pr-2">Year</th>
+                <td class="pl-2">{{movie.year}}</td>
+            </tr>
+        </table>
+
+        
+        <button class="btn-secondary mt-4" type="button" onclick=" location.href='{% url 'listMovie' %}'">
+            Back to Collection
+        </button>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,36 @@
+#backdrop {
+    color: rgb(221, 216, 216);
+    background: rgb(108,19,19);
+    background: linear-gradient(90deg, rgba(108,19,19,1) 0%, rgba(0,0,0,1) 35%, rgba(156,153,153,1) 100%);
+}
+
+.text-light {
+    color: rgb(221, 216, 216);
+}
+
+.table-style {
+    color: black;
+    background-color: rgb(226, 226, 226); 
+    border: 1px solid black;
+    box-shadow: 3px 2px 20px black, 1px 1px 8px black inset;
+    border-radius: 1px;
+  }
+
+table {
+      margin: auto;
+      margin-top: 2em;
+  }
+
+ .align-left {
+     text-align: left;
+ }
+
+#card-style {
+    color: black;
+    text-overflow: clip;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+}
+  
